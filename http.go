@@ -6,15 +6,6 @@ import (
 	"time"
 	tea "charm.land/bubbletea/v2"
 )
-type respMsg struct {
-	resp *http.Response
-	body string
-	ms int64
-}
-type errMsg struct {
-	err error
-}
-
 const url = "https://dog.ceo/api/breeds/image/random"
 
 func sendQuery(client *http.Client, target string) tea.Cmd {
@@ -66,4 +57,13 @@ func (qm QueryMethod) String() string{
 		return name
 	}
 	return "UNKNOWN"
+}
+
+type respMsg struct {
+	resp *http.Response
+	body string
+	ms int64
+}
+type errMsg struct {
+	err error
 }
